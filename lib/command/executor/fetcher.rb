@@ -51,6 +51,7 @@ module PodPrebuild
       Pod::UI.puts "Unzipping cache: #{@config.cache_path} -> #{@config.prebuild_sandbox_path}".green
       FileUtils.rm_rf(@config.prebuild_sandbox_path)
       FileUtils.mkdir_p(@config.prebuild_sandbox_path)
+      FileUtils.mkdir_p(@config.generated_frameworks_dir)
 
       if File.exist?(@config.manifest_path(in_cache: true))
         FileUtils.cp(
