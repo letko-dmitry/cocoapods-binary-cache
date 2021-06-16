@@ -62,7 +62,7 @@ module PodPrebuild
       # when there are argument collisions in the xcodebuild command.
       # For ex. `xcodebuild AN_ARG=1 AN_ARG=2` should use `AN_ARG=2` instead.
       args_ = args.clone
-      args_[:default] ||= []
+      args_[:default] ||= ["BUILD_LIBRARY_FOR_DISTRIBUTION=YES"]
       args_[:simulator] ||= []
       args_[:device] ||= []
       args_[:default].prepend("BITCODE_GENERATION_MODE=bitcode") if bitcode_enabled?
